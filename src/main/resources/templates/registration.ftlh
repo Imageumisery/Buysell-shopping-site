@@ -9,21 +9,18 @@
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<h1>BUYSELL</h1>
-<hr>
-<h4>Info</h4>
-<#list images as img>
-    <img src="/images/${img.id!}" height="60px"/> <br><br>
-</#list>
-<b>Name: </b>${product.title}<br>
-<b>Description: </b>${product.description}<br>
-<b>Price: </b>${product.price} $<br>
-<b>City: </b>${product.city}<br>
-<b>Author: </b> <a href="/user-info/${product.user.id}" >${product.user.name}</a><br>
-<hr>
-<#if product.user??>
-<form action="/product/delete/${product.id}" method="post">
+<h1>BUYSELL</h1><hr>
+<h4>Регистрация</h4>
+<form action="/registration" method="post">
+    Имя пользователя: <input type="text" name="name"><br><br>
+    Эл. почта: <input type="email" name="email"><br><br>
+    Номер телефона: <input type="text" name="numberPhone"><br><br>
+    Пароль: <input type="password" name="password"><br><br>
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <input type="submit" value="Register"/>
 </form>
+<#if errorMessage??>
+    <h2 style="color: crimson"> ${errorMessage}</h2>
 </#if>
 </body>
 </html>
