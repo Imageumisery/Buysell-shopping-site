@@ -5,23 +5,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <#include "style.css">
+    <#include "images.css">
 </head>
 <body style="text-align: center;
 font-family: 'Calibri Light';
 font-size: 22px">
 <h1 style="text-align: center;
-margin-bottom: initial"
+margin-bottom: 66px"
 >BUYSELL</h1>
 <hr>
 
 <div style="justify-content: space-between;
-        margin-top: 70px;">
+        margin-top: 66px;">
     <h2>Information about
         <div style="font-style: oblique">${product.title}</div>
     </h2>
-    <#list images as img>
-        <img src="/images/${img.id!}" height="169px"/> <br><br>
-    </#list>
+    <div class="row">
+        <#list images as img>
+            <div class="column">
+                <img src="/images/${img.id!}" height="169px" style="width:100%"/>
+            </div>
+        </#list>
+    </div>
     <b>Описание: </b>${product.description}<br>
     <b>Цена: </b>${product.price} $<br>
     <b>Город: </b>${product.city}<br>

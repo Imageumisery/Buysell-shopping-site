@@ -4,6 +4,7 @@
     <title>BUYSELL</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <#include "style.css">
 </head>
 <body style="text-align: center;
 font-family: 'Calibri Light';
@@ -19,6 +20,8 @@ font-size: 22px">
 
     </div>
 </#list>
+<a id="button-17" style="margin-top: 15px;
+ text-decoration-line: none;" href="/">Назад</a>
 
 </body>
 </html>

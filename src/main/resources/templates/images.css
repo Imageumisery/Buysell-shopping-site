@@ -1,0 +1,34 @@
+<style type="text/css">
+.column {display: flex;
+                          float: left;
+                          justify-content: center;
+                          align-items: center;
+}
+
+.row::after {
+    display: flex;
+    justify-content: center;
+    content: "";
+    clear: both;
+}
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    position: relative;
+    top: 10%;
+    left: 33%;
+
+}
+
+.column {
+    text-align: center;
+   margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+}
+
+@media screen and (max-width: 500px) {
+}
+</style>

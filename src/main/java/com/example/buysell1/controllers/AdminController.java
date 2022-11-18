@@ -3,7 +3,6 @@ package com.example.buysell1.controllers;
 import com.example.buysell1.models.User;
 import com.example.buysell1.models.enums.Role;
 import com.example.buysell1.services.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +15,13 @@ import java.security.Principal;
 import java.util.Map;
 
 @Controller
-@RequiredArgsConstructor
 @PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class AdminController {
     private final UserService userService;
+
+    public AdminController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/admin")
     public String users(Model model, Principal principal) {
