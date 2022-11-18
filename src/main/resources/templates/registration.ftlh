@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <#include "style.css">
-   </head>
+</head>
 <body style="text-align: center;
 font-family: 'Calibri Light';
 font-size: 22px">
-<h1>BUYSELL</h1><hr>
+<h1>BUYSELL</h1>
+<hr>
 <h4>Регистрация</h4>
 <form action="/registration" method="post">
     Имя пользователя: <input type="text" required ename="name"><br><br>
@@ -19,7 +20,7 @@ font-size: 22px">
     <input type="hidden" name="_csrf" value="${_csrf.token}">
     Code Admin: <input type="text" name="isAdmin" value="(not required)">
     <input id="button-17" style="margin-top: 15px;text-align: center; margin-right: auto; margin-left:auto;
- text-decoration-line: none;"type="submit" value="Register"/>
+ text-decoration-line: none;" type="submit" value="Register"/>
 </form>
 <#if errorMessage??>
     <h2 style="color: crimson; margin-top: 50px;"> ${errorMessage}</h2>

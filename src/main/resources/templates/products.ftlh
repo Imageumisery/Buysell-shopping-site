@@ -30,7 +30,9 @@ font-size: 22px">
 <#if user.email??>
     <#list products as product>
         <div>
-            <p><b>${product.title}</b> ${product.price}  <a id="button-17" style="margin-top: 15px; margin-left: 80px; text-decoration-line: none;" href="/product/${product.id}">Details</a></p>
+            <p><b>${product.title}</b> ${product.price} <a id="button-17"
+                                                           style="margin-top: 15px; margin-left: 80px; text-decoration-line: none;"
+                                                           href="/product/${product.id}">Details</a></p>
 
         </div>
     </#list>

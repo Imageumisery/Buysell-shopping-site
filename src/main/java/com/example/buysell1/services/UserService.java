@@ -22,14 +22,13 @@ public class UserService {
     public boolean createUser(User user, String isAdmin) {
         String email = user.getEmail();
         boolean admin = isAdmin.contains("4444");
-        if(userRepository.findByEmail(user.getEmail()) != null)
-            return false;
+        if (userRepository.findByEmail(user.getEmail()) != null) return false;
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        if(admin){
+        if (admin) {
             user.getRoles().add(Role.ROLE_ADMIN);
         } else {
-        user.getRoles().add(Role.ROLE_USER);
+            user.getRoles().add(Role.ROLE_USER);
         }
         log.info("Saving new user by email{}:", email);
         userRepository.save(user);
@@ -41,6 +40,7 @@ public class UserService {
         users.addAll((userRepository.findAll()));
         return users;
     }
+
     public User getUserByPrincipal(Principal principal) {
         if (principal == null) return new User();
         return userRepository.findByEmail((principal.getName()));
@@ -58,12 +58,11 @@ public class UserService {
                 log.info("Unban user with id = {}; email: {}", user.getId(), user.getEmail());
             }
         }
+        userRepository.save(user);
     }
 
     public void changeUserRoles(User user, Map<String, String> form) {
-        Set<String> roles = Arrays.stream(Role.values())
-                .map(Role::name)
-                .collect(Collectors.toSet());
+        Set<String> roles = Arrays.stream(Role.values()).map(Role::name).collect(Collectors.toSet());
         user.getRoles().clear();
         for (String key : form.keySet()) {
             if (roles.contains(key)) {

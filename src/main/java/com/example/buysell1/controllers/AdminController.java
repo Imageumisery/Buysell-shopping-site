@@ -29,8 +29,9 @@ public class AdminController {
     }
 
     @PostMapping("/user/ban/{id}")
-    public void banUser(@PathVariable("id")Long id) {
+    public String banUser(@PathVariable("id") Long id) {
         userService.banUser(id);
+        return "redirect:/admin";
     }
 
     @GetMapping("/admin/user/edit/{user}")
@@ -38,7 +39,6 @@ public class AdminController {
         model.addAttribute("user", user);
         model.addAttribute("user", userService.getUserByPrincipal(principal));
         model.addAttribute("roles", Role.values());
-
         return "user-edit";
     }
 

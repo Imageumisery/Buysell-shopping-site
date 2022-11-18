@@ -4,11 +4,12 @@
     <title>BUYSELL</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
+</head>
 <body style="text-align: center;
 font-family: 'Calibri Light';
 font-size: 22px">
-<h1>BUYSELL</h1><hr>
+<h1>BUYSELL</h1>
+<hr>
 <h3>Информация о продавце ${user.email}</h3>
 <h3>Номер продавца: <#if user.phoneNumber??>${user.phoneNumber}</#if></h3>
 <#list products as product>

@@ -48,7 +48,7 @@ public class ProductService {
             image3 = toImageEntity(file3);
             product.addImageToProduct(image3);
         }
-        log.info("Saving new Product. Title: {}, Author email:{}", product.getTitle(),product.getUser().getEmail());
+        log.info("Saving new Product. Title: {}, Author email:{}", product.getTitle(), product.getUser().getEmail());
         Product productFromDb = productRepository.save(product);
         if (file1.getSize() != 0) {
             productFromDb.setPreviewImageId(productFromDb.getImages().get(0).getId());
@@ -57,7 +57,7 @@ public class ProductService {
     }
 
     public User getUserByPrincipal(Principal principal) {
-        if(principal == null) return new User();
+        if (principal == null) return new User();
         return userRepository.findByEmail(principal.getName());
     }
 

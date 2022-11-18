@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <#include "style.css">
-    </head>
+</head>
 <body style="text-align: center;
 font-family: 'Calibri Light';
 font-size: 22px">

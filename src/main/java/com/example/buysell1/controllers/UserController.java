@@ -28,18 +28,18 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String createUser(@RequestParam(value = "isAdmin", required = false) String isAdmin,User user, Model model) {
+    public String createUser(@RequestParam(value = "isAdmin", required = false) String isAdmin, User user, Model model) {
         model.addAttribute("isAdmin", user.isAdmin());
 
         if (!userService.createUser(user, isAdmin)) {
             model.addAttribute("errorMessage", "User with email" + user.getEmail() + "is already exists");
-                    return "registration";
+            return "registration";
         }
         return "redirect:/login";
     }
 
     @GetMapping("/user/{user}")
-    public String userInfo(@PathVariable("user") User user,  Model model, Principal principal) {
+    public String userInfo(@PathVariable("user") User user, Model model, Principal principal) {
         model.addAttribute("user", user);
         model.addAttribute("user", userService.getUserByPrincipal(principal));
         model.addAttribute("products", user.getProducts());
