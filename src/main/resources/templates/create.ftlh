@@ -18,10 +18,10 @@ font-size: 22px">
     border: 2px solid rebeccapurple;"
 
       action="/product/create" method="post" enctype="multipart/form-data">
-    Order name: <input type="text" required name="title"/><br><br>
-    Description: <input type="text" required name="description"/><br><br>
-    Price: <input type="number" required name="price"/> $<br><br>
-    City: <input type="text" required name="city"/><br><br>
+    Название: <input type="text" required name="title"/><br><br>
+    Описание: <input type="text" required name="description"/><br><br>
+    Цена: <input type="number" required name="price"/> $<br><br>
+    Город: <input type="text" required name="city"/><br><br>
 
     First photo: <input type="file" name="file1"/><br><br>
     Second photo: <input type="file" name="file2"/><br><br>

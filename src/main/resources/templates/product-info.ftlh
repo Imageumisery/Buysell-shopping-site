@@ -20,12 +20,12 @@ margin-bottom: initial"
 <#list images as img>
     <img src="/images/${img.id!}" height="169px"/> <br><br>
 </#list>
-<b>Description: </b>${product.description}<br>
-<b>Price: </b>${product.price} $<br>
-<b>City: </b>${product.city}<br>
-    <b>Phone: </b><#if product.user.phoneNumber??>${product.user.phoneNumber}</#if><br>
+<b>Описание: </b>${product.description}<br>
+<b>Цена: </b>${product.price} $<br>
+<b>Город: </b>${product.city}<br>
+    <b>Телефон продавца: </b><#if product.user.phoneNumber??>${product.user.phoneNumber}</#if><br>
 
-<b>Author: </b> <a href="/user-info/${product.user.id}" >${product.user.email}</a><br>
+<b>Продавец: </b> <a href="/user/${product.user.id}" >${product.user.email}</a><br>
 <hr>
 </div>
 <#if product.user??>
@@ -33,6 +33,6 @@ margin-bottom: initial"
 </form>
 </#if>
 <a id="button-17" style="margin-top: 15px;
- text-decoration-line: none;" href="/">Back to products</a>
+ text-decoration-line: none;" href="/">Назад</a>
 </body>
 </html>

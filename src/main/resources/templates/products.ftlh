@@ -36,7 +36,7 @@ font-size: 22px">
     </#list>
     <hr>
     <h3><a id="button-17" style="margin-top: 15px;
- text-decoration-line: none;" href="/product/create">Create a new order</a></h3>
+ text-decoration-line: none;" href="/product/create">Создать</a></h3>
 </#if>
 
 

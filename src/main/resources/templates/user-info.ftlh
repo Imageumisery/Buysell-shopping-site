@@ -9,8 +9,8 @@
 font-family: 'Calibri Light';
 font-size: 22px">
 <h1>BUYSELL</h1><hr>
-<h3>Information about seller ${user.name}</h3><hr>
-<h3><#if user.phoneNumber??>${user.phoneNumber}</#if></h3>
+<h3>Информация о продавце ${user.email}</h3>
+<h3>Номер продавца: <#if user.phoneNumber??>${user.phoneNumber}</#if></h3>
 <#list products as product>
     <div>
         <p><b>${product.title}</b> ${product.price} | <a style="text-decoration: none; border-width: 13px; border-color: black;

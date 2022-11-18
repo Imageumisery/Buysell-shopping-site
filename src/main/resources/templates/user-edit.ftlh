@@ -7,7 +7,7 @@
 font-family: 'Calibri Light';
 font-size: 22px">
 <h1>BUYSELL</h1><hr>
-<h3>Information about user ${user.name}</h3><hr>
+<h3>Information about user ${user.email}</h3><hr>
 <form action="/admin/user/edit" method="post">
     <#list roles as role>
         <div>

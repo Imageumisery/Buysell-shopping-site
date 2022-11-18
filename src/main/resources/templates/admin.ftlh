@@ -16,19 +16,19 @@ font-size: 22px">
   margin-right: auto;">
     <thead>
     <tr>
-        <th>Status</th>
-        <th>Role</th>
+        <th>Статус</th>
+        <th>Роль</th>
         <th>Email</th>
-        <th>Number</th>
-        <th>Ban</th>
+        <th>Номер</th>
+        <th>Бан</th>
         <th>Details</th>
     </tr>
     </thead>
     <tbody>
     <#list users as user>
         <tr>
-            <th><#if user.active><img src="/images/Green_Dot_(Active).png" height="32" width="32" style="border-radius: 50%"/>
-                <#else><img src="/images/Basic_red_dot.png" height="32" width="32" style="border-radius: 50%"/></#if>
+            <th><#if user.active><img src="../images/Green_Dot_(Active).png" height="32" width="32" style="border-radius: 50%"/>
+                <#else><img src="../images/Basic_red_dot.png" height="32" width="32" style="border-radius: 50%"/></#if>
             </th>
             <th><#if user.roles??><#list user.roles as role>${role}</#list></#if></th>
             <th><#if user.email??>${user.email}</#if></th>
@@ -47,42 +47,5 @@ font-size: 22px">
     </#list>
     </tbody>
 </table>
-
-
-<#--<div class="container">
-<h2>Responsive Tables Using LI <small>Triggers on 767px</small></h2>
-<ul class="responsive-table">
-    <li class="table-header">
-        <div class="col col-1">Job Id</div>
-        <div class="col col-2">Customer Name</div>
-        <div class="col col-3">Amount Due</div>
-        <div class="col col-4">Payment Status</div>
-    </li>
-    <li class="table-row">
-        <div class="col col-1" data-label="Job Id">42235</div>
-        <div class="col col-2" data-label="Customer Name">John Doe</div>
-        <div class="col col-3" data-label="Amount">$350</div>
-        <div class="col col-4" data-label="Payment Status">Pending</div>
-    </li>
-    <li class="table-row">
-        <div class="col col-1" data-label="Job Id">42442</div>
-        <div class="col col-2" data-label="Customer Name">Jennifer Smith</div>
-        <div class="col col-3" data-label="Amount">$220</div>
-        <div class="col col-4" data-label="Payment Status">Pending</div>
-    </li>
-    <li class="table-row">
-        <div class="col col-1" data-label="Job Id">42257</div>
-        <div class="col col-2" data-label="Customer Name">John Smith</div>
-        <div class="col col-3" data-label="Amount">$341</div>
-        <div class="col col-4" data-label="Payment Status">Pending</div>
-    </li>
-    <li class="table-row">
-        <div class="col col-1" data-label="Job Id">42311</div>
-        <div class="col col-2" data-label="Customer Name">John Carpenter</div>
-        <div class="col col-3" data-label="Amount">$115</div>
-        <div class="col col-4" data-label="Payment Status">Pending</div>
-    </li>
-</ul>
-</div>-->
 </body>
 </html>

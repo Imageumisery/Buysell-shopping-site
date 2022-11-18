@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
@@ -40,8 +39,9 @@ public class UserController {
     }
 
     @GetMapping("/user/{user}")
-    public String userInfo(@PathVariable("user") User user, Model model) {
+    public String userInfo(@PathVariable("user") User user,  Model model, Principal principal) {
         model.addAttribute("user", user);
+        model.addAttribute("user", userService.getUserByPrincipal(principal));
         model.addAttribute("products", user.getProducts());
         return "user-info";
     }

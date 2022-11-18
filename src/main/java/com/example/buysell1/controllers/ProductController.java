@@ -20,10 +20,12 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/product/{id}")
-    public String productInfo(@PathVariable Long id, Model model) {
+    public String productInfo(@PathVariable Long id, Model model, Principal principal) {
         Product product = productService.getProductById(id);
+        model.addAttribute("user", productService.getUserByPrincipal(principal));
         model.addAttribute("product", product);
         model.addAttribute("images", product.getImages());
+        model.addAttribute("authorProduct", product.getUser());
         return "product-info";
     }
 
