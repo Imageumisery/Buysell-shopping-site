@@ -23,7 +23,7 @@ public class ImageController {
     @SneakyThrows
     @GetMapping("/images/{id}")
     private ResponseEntity<?> getImageById(@PathVariable Long id) {
-        Image image = imageRepository.findById(id).orElseThrow(IOException::new);
+        Image image = imageRepository.findById(id).orElse(null);
         return ResponseEntity.ok()
                 .header("fileName", image.getOriginalName())
                 .contentType(MediaType.valueOf(image.getContentType()))

@@ -19,7 +19,7 @@ public class User implements UserDetails {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "phoneNumber")
+    @Column(name = "phoneNumber", unique = true)
     private String phoneNumber;
     @Column(name = "email", unique = true)
     private String email;

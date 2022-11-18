@@ -8,10 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.security.Principal;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,21 +19,33 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public boolean createUser(User user) {
+    public boolean createUser(User user, String isAdmin) {
         String email = user.getEmail();
-        if(userRepository.getByEmail(user.getEmail()) != null)
+        boolean admin = isAdmin.contains("4444");
+        if(userRepository.findByEmail(user.getEmail()) != null)
             return false;
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        if(admin){
+            user.getRoles().add(Role.ROLE_ADMIN);
+        } else {
         user.getRoles().add(Role.ROLE_USER);
+        }
         log.info("Saving new user by email{}:", email);
         userRepository.save(user);
         return true;
     }
 
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        List<User> users = new ArrayList<>();
+        users.addAll((userRepository.findAll()));
+        return users;
     }
+    public User getUserByPrincipal(Principal principal) {
+        if (principal == null) return new User();
+        return userRepository.findByEmail((principal.getName()));
+    }
+
 
     public void banUser(Long id) {
         User user = userRepository.findById(id).orElse(null);

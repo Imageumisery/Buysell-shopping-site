@@ -58,7 +58,7 @@ public class ProductService {
 
     public User getUserByPrincipal(Principal principal) {
         if(principal == null) return new User();
-        return userRepository.getByEmail(principal.getName());
+        return userRepository.findByEmail(principal.getName());
     }
 
     private Image toImageEntity(MultipartFile file) throws IOException {
